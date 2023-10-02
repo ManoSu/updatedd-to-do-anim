@@ -1,0 +1,173 @@
+/* Common styles for all screen sizes */
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #ff6600, #ff0033);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  animation: slide-in 0.5s;
+}
+
+/* Header styles */
+h1 {
+  text-align: center;
+  color: beige;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column; /* Stack input elements vertically on small screens */
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ff6600;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Add some spacing between inputs */
+  font-size: 16px;
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px; /* Add spacing between button and inputs */
+}
+
+/* Task List styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: column; /* Stack task details vertically on small screens */
+  background-color: #fff;
+  border: 1px solid #ff6600;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  animation: fade-in 0.5s;
+  color: #333;
+}
+
+/* Styles for completed tasks */
+.completed {
+  background-color: #cfc;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Delete and Edit buttons */
+.delete,
+.edit {
+  background-color: #ff3300;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+/* Hover styles for buttons */
+.delete:hover {
+  background-color: #cc0000;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%; /* Make the container full width on small screens */
+    padding: 10px; /* Reduce padding for small screens */
+  }
+
+  .input-container {
+    flex-direction: row; /* Place inputs side by side on larger screens */
+  }
+
+  input[type="text"],
+  input[type="date"] {
+    margin-bottom: 0; /* Remove margin between inputs on small screens */
+  }
+
+  /* Adjust animations for small screens */
+  .container {
+    animation: none; /* Disable animation on small screens if desired */
+  }
+}
+/* Add task animation */
+li.adding {
+  animation: add-task 0.5s ease-in-out;
+}
+
+@keyframes add-task {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Delete task animation */
+li.deleting {
+  animation: delete-task 0.3s ease-in-out;
+}
+
+@keyframes delete-task {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* Edit and Edit Deadline buttons */
+.edit,
+.edit-deadline {
+  background-color: #ff3300;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Hover styles for buttons */
+.edit:hover,
+.edit-deadline:hover {
+  background-color: #cc0000;
+}
